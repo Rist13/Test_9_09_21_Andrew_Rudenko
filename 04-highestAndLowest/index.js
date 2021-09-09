@@ -4,18 +4,26 @@
  * @returns {string} - returns the new string
  */
 export const highestAndLowest = (numbers) => {
-    let arr = numbers.split(' ')
+    let arr = numbers.split(" ");
     for (let a of arr) {
         a = Number(a);
-    } 
-    let low = arr[0], high = arr[0];
-    for (let a of arr) {
-        if (a<low) {
-            low = a;
-        }
-        if (a>high) {
-            high = a;
-        }
     }
-    return `${low} ${high}`
+    let low = 0,
+        high = 0;
+    for (let i = 0; i<arr.length; i++) {
+        if (arr[i] < arr[low]) {
+        low = i;
+        };
+    };
+    for (let i = 0; i<arr.length; i++) {  
+        if (arr[i] > arr[high]) {
+            high = i;
+        }
+    };
+
+    if (parseFloat(arr[low]) > parseFloat(arr[high])) { 
+        return `${arr[high]} ${arr[low]}`; 
+    } else {
+        return `${arr[low]} ${arr[high]}`;
+    }
 }
