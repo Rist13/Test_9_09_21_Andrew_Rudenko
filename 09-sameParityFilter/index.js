@@ -1,13 +1,17 @@
 export const sameParityFilter = (arr = []) => {
     let out = [];
-    if (Math.abs(arr[0]) % 2 === 0) {
-        out = arr.filter((x) => {
-            Math.abs(arr[0]) % 2 === 0
-        });
+    if (arr[0] % 2 === 0) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                out.push(arr[i]);
+            }
+        }
     } else {
-        out = arr.filter((x) => {
-            Math.abs(arr[0]) % 2 !== 0
-        });
-    };
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 !== 0) {
+                out.push(arr[i]);
+            }
+        }
+    }
     return out;
 }
